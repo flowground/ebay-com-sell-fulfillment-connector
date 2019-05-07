@@ -1,0 +1,45 @@
+{
+    "type": "object",
+    "properties": {
+        "orderId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "This type contains the details for creating a fulfillment for an order.",
+            "properties": {
+                "lineItems": {
+                    "description": "Contains a list of the line items (or their components) to which the fulfillment applies.",
+                    "items": {
+                        "description": "This type identifies a line item in an order.",
+                        "properties": {
+                            "lineItemId": {
+                                "description": "The globally unique eBay-generated identifier of the line item. Note: A single line item can consist of multiple units of a purchased item, and one unit can consist of multiple parts or components. Although these components might be provided by the manufacturer in separate packaging, the seller cannot distribute them among multiple shipping packages. Thus, each line item ID will appear in exactly one fulfillment.",
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "description": "This field is reserved for internal or future use.",
+                                "type": "integer"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "shippedDate": {
+                    "description": "The date and time that the fulfillment package was shipped. Default: The current date and time.",
+                    "type": "string"
+                },
+                "shippingCarrierCode": {
+                    "description": "The code identifying the shipping carrier for this fulfillment. This field and the trackingNumber field are mutually dependent. If you include one, you must also include the other. Note: The Trading API's ShippingCarrierCodeType enumeration contains the most current list of eBay shipping carrier codes and the countries served by each carrier. See ShippingCarrierCodeType.",
+                    "type": "string"
+                },
+                "trackingNumber": {
+                    "description": "The tracking number provided by the shipping carrier for this fulfillment. This field and the shippingCarrierCode field are mutually dependent. If you include one, you must also include the other. Note: If you include trackingNumber (and shippingCarrierCode) in the request, the resulting fulfillment's ID (returned in the HTTP location code) is the tracking number. If you do not include the tracking number, the resulting fulfillment ID will default to an arbitrary number such as 999.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "filter": {
+            "required": false,
+            "type": "string"
+        },
+        "limit": {
+            "required": false,
+            "type": "string"
+        },
+        "offset": {
+            "required": false,
+            "type": "string"
+        },
+        "orderIds": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

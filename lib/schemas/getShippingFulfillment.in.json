@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "properties": {
+        "fulfillmentId": {
+            "required": true,
+            "type": "string"
+        },
+        "orderId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}
